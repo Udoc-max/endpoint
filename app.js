@@ -6,14 +6,14 @@ const port = process.env.PORT || 3001;
 
 app.use(cors());
 
-app.get("/data", (req, res) => {
+app.get("/api", (req, res) => {
   const { slack_name, track } = req.query;
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const currentDay = daysOfWeek[new Date().getDay()];
   const now = new Date();
   const utcTime = new Date(now.getTime() + (now.getTimezoneOffset() * 60000)).toISOString();
   
-  const responseData = {
+  const responseApi = {
     slack_name: slack_name,
     current_day: currentDay,
     utc_time: utcTime,
@@ -23,7 +23,7 @@ app.get("/data", (req, res) => {
     status_code: 200,
   };
 
-  return res.json(responseData);
+  return res.json(responseApi);
 });
 
 app.listen(port, () => {
