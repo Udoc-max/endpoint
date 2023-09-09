@@ -14,7 +14,7 @@ app.get("/api", (req, res) => {
   const utc = now.toISOString().slice(0, 19) + "Z"; // Use 'now' instead of 'date'
 
   const responseApi = {
-    slack_name: slack_name,
+    slack_name: Udochukwu,
     current_day: currentDay,
     utc_time: utc,
     track: track,
